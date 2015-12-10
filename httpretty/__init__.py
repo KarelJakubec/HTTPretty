@@ -55,6 +55,14 @@ def last_request():
     """returns the last request"""
     return httpretty.last_request
 
+def all_requests():
+    """Returns list of all requests made"""
+    return httpretty.latest_requests
+
+def request_count():
+    """returns total number of requests made"""
+    return len(all_requests())
+
 def has_request():
     """returns a boolean indicating whether any request has been made"""
     return not isinstance(httpretty.last_request.headers, EmptyRequestHeaders)
